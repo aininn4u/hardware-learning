@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <title>Kenali Komponen Komputer | Hardware Learning</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color:#f5f8fc;">
+
+<!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top"
+        style="padding: 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold"
+            href="index.html"
+            style="font-size: 22px; color: #2563a6;">
+                Hardware Learning
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"
+                    style="font-size: 15px;">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="materi.html">Materi</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="komponen.html">Kenali Komponen</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="simulasi.html">Simulasi</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="kuis.html">Kuis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold text-primary" href="sumber.html">Sumber</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<!-- KONTEN UTAMA -->
+<div class="container py-5">
+
+    <!-- JUDUL -->
+    <section style="background:linear-gradient(135deg,#dceeff,#f2f8ff);
+        border-radius:20px; padding:30px 20px; text-align:center;
+        margin-bottom:35px;">
+
+        <h2 class="fw-bold mb-2"
+            style="color:#193b60; font-size:1.7rem;">
+            Kenali Komponen Komputer
+        </h2>
+
+        <p class="mb-0" style="color:#193b60;">
+            Pilih salah satu komponen untuk mengetahui nama,
+            fungsi, dan kegunaannya.
+        </p>
+
+    </section>
+
+
+    <!-- DAFTAR KOMPONEN -->
+    <section class="mt-4">
+
+        <h5 class="fw-bold mb-3" style="color:#193b60;">
+            Pilih Komponen
+        </h5>
+
+        <div class="row g-3">
+
+            <!-- CPU -->
+            <div class="col-6 col-md-3">
+                <div class="komponen-card"
+                    onclick="pilihKomponen('cpu',this)"
+                    style="background:#eaf4ff; border:2px solid #2563a6;
+                    border-radius:16px; padding:18px 12px;
+                    text-align:center; cursor:pointer; height:100%;
+                    transition:0.3s;
+                    box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+
+                    <div style="font-size:34px; margin-bottom:10px;">🧠</div>
+                    <h6 class="fw-bold">CPU</h6>
+                    <small>Processor</small>
+                </div>
+            </div>
+
+            <!-- MOTHERBOARD -->
+            <div class="col-6 col-md-3">
+                <div class="komponen-card"
+                    onclick="pilihKomponen('motherboard',this)"
+                    style="background:white; border:2px solid transparent;
+                    border-radius:16px; padding:18px 12px;
+                    text-align:center; cursor:pointer; height:100%;
+                    transition:0.3s;
+                    box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+
+                    <div style="font-size:34px; margin-bottom:10px;">🖥️</div>
+                    <h6 class="fw-bold">Motherboard</h6>
+                    <small>Papan Utama</small>
+                </div>
+            </div>
+
+            <!-- RAM -->
+            <div class="col-6 col-md-3">
+                <div class="komponen-card"
+                    onclick="pilihKomponen('ram',this)"
+                    style="background:white; border:2px solid transparent;
+                    border-radius:16px; padding:18px 12px;
+                    text-align:center; cursor:pointer; height:100%;
+                    transition:0.3s;
+                    box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+
+                    <div style="font-size:34px; margin-bottom:10px;">💾</div>
+                    <h6 class="fw-bold">RAM</h6>
+                    <small>Memori Sementara</small>
+                </div>
+            </div>
+
+            <!-- SSD / HDD -->
+            <div class="col-6 col-md-3">
+                <div class="komponen-card"
+                    onclick="pilihKomponen('ssd',this)"
+                    style="background:white; border:2px solid transparent;
+                    border-radius:16px; padding:18px 12px;
+                    text-align:center; cursor:pointer; height:100%;
+                    transition:0.3s;
+                    box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+
+                    <div style="font-size:34px; margin-bottom:10px;">📀</div>
+                    <h6 class="fw-bold">SSD / HDD</h6>
+                    <small>Penyimpanan</small>
+                </div>
+            </div>
+
+            <!-- GPU -->
+            <div class="col-6 col-md-3">
+                <div class="komponen-card"
+                    onclick="pilihKomponen('gpu',this)"
+                    style="background:white; border:2px solid transparent;
+                    border-radius:16px; padding:18px 12px;
+                    text-align:center; cursor:pointer; height:100%;
+                    transition:0.3s;
+                    box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+
+                    <div style="font-size:34px; margin-bottom:10px;">🎮</div>
+                    <h6 class="fw-bold">GPU</h6>
+                    <small>Kartu Grafis</small>
+                </div>
+            </div>
+
+            <!-- POWER SUPPLY -->
+            <div class="col-6 col-md-3">
+                <div class="komponen-card"
+                    onclick="pilihKomponen('psu',this)"
+                    style="background:white; border:2px solid transparent;
+                    border-radius:16px; padding:18px 12px;
+                    text-align:center; cursor:pointer; height:100%;
+                    transition:0.3s;
+                    box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+
+                    <div style="font-size:34px; margin-bottom:10px;">🔌</div>
+                    <h6 class="fw-bold">Power Supply</h6>
+                    <small>Penyalur Daya</small>
+                </div>
+            </div>
+
+            <!-- COOLING FAN -->
+            <div class="col-6 col-md-3">
+                <div class="komponen-card"
+                    onclick="pilihKomponen('cooling',this)"
+                    style="background:white; border:2px solid transparent;
+                    border-radius:16px; padding:18px 12px;
+                    text-align:center; cursor:pointer; height:100%;
+                    transition:0.3s;
+                    box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+
+                    <div style="font-size:34px; margin-bottom:10px;">❄️</div>
+                    <h6 class="fw-bold">Cooling Fan</h6>
+                    <small>Pendingin</small>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- DETAIL KOMPONEN -->
+    <section id="detail" class="mt-4"
+        style="background:white; border-radius:18px;
+        padding:22px; box-shadow:0 5px 18px rgba(0,0,0,0.06);">
+
+        <div class="row align-items-center">
+
+            <div class="col-md-3 text-center">
+                <div id="detailIkon"
+                    style="font-size:55px;">🧠</div>
+            </div>
+
+            <div class="col-md-9">
+
+                <h4 class="fw-bold" id="detailNama"
+                    style="color:#193b60;">
+                    CPU (Central Processing Unit)
+                </h4>
+
+                <p id="detailFungsi" style="color:#555;">
+                    CPU merupakan komponen yang bertugas memproses
+                    instruksi dan menjalankan perintah dari program komputer.
+                </p>
+
+                <div class="alert alert-primary mb-0">
+                    <strong>Contoh kegunaan:</strong>
+                    <span id="detailContoh">
+                        Memproses perintah ketika pengguna membuka aplikasi.
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TOMBOL KEMBALI -->
+    <div class="text-center mt-4">
+        <button class="btn btn-primary rounded-pill px-4 py-2"
+            onclick="kembaliAwal()"
+            style="background:#2563a6; border:none;">
+            Kembali ke Komponen Pertama
+        </button>
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer class="text-center py-4 bg-white mt-4">
+    <p class="text-secondary mb-0">
+        © 2026 Hardware Learning | Media Pembelajaran Perangkat Keras Komputer
+    </p>
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+const dataKomponen = {
+
+    cpu: {
+        ikon: "🧠",
+        nama: "CPU (Central Processing Unit)",
+        fungsi: "CPU merupakan komponen yang bertugas memproses instruksi dan menjalankan perintah dari program komputer.",
+        contoh: "Memproses perintah ketika pengguna membuka aplikasi."
+    },
+
+    motherboard: {
+        ikon: "🖥️",
+        nama: "Motherboard",
+        fungsi: "Motherboard adalah papan sirkuit utama yang menghubungkan berbagai komponen komputer agar dapat saling berkomunikasi.",
+        contoh: "Menghubungkan CPU, RAM, penyimpanan, dan komponen lainnya."
+    },
+
+    ram: {
+        ikon: "💾",
+        nama: "RAM (Random Access Memory)",
+        fungsi: "RAM merupakan memori sementara yang menyimpan data dan program yang sedang digunakan komputer.",
+        contoh: "Menyimpan data sementara ketika pengguna membuka beberapa aplikasi."
+    },
+
+    ssd: {
+        ikon: "📀",
+        nama: "SSD / HDD",
+        fungsi: "SSD dan HDD merupakan perangkat penyimpanan untuk menyimpan sistem operasi, aplikasi, dan file pengguna dalam jangka panjang.",
+        contoh: "Menyimpan dokumen, foto, video, dan aplikasi."
+    },
+
+    gpu: {
+        ikon: "🎮",
+        nama: "GPU (Graphics Processing Unit)",
+        fungsi: "GPU bertugas mengolah data grafis dan membantu menampilkan gambar atau video pada layar.",
+        contoh: "Mengolah tampilan grafis pada game dan video."
+    },
+
+    psu: {
+        ikon: "🔌",
+        nama: "Power Supply Unit",
+        fungsi: "Power Supply menyediakan dan menyalurkan daya listrik yang dibutuhkan oleh komponen komputer.",
+        contoh: "Menyuplai listrik ke motherboard, CPU, dan komponen lainnya."
+    },
+
+    cooling: {
+        ikon: "❄️",
+        nama: "Cooling Fan",
+        fungsi: "Cooling fan membantu mengalirkan udara untuk menjaga suhu komponen komputer agar tidak terlalu panas.",
+        contoh: "Membantu mendinginkan bagian dalam casing komputer."
+    }
+
+};
+
+
+function pilihKomponen(kode, elemen) {
+
+    const data = dataKomponen[kode];
+
+    document.getElementById("detailIkon").textContent = data.ikon;
+    document.getElementById("detailNama").textContent = data.nama;
+    document.getElementById("detailFungsi").textContent = data.fungsi;
+    document.getElementById("detailContoh").textContent = data.contoh;
+
+    document.querySelectorAll(".komponen-card").forEach(card => {
+
+        card.style.background = "white";
+        card.style.border = "2px solid transparent";
+        card.style.transform = "translateY(0)";
+
+    });
+
+    elemen.style.background = "#eaf4ff";
+    elemen.style.border = "2px solid #2563a6";
+    elemen.style.transform = "translateY(-3px)";
+
+}
+
+
+function kembaliAwal() {
+
+    const kartuPertama = document.querySelector(".komponen-card");
+
+    pilihKomponen("cpu", kartuPertama);
+
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

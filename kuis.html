@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <title>Kuis - Hardware Learning</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color:#f5f8fc;">
+
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top"
+        style="padding: 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold"
+            href="index.html"
+            style="font-size: 22px; color: #2563a6;">
+                Hardware Learning
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"
+                    style="font-size: 15px;">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="materi.html">Materi</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="komponen.html">Kenali Komponen</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="simulasi.html">Simulasi</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="kuis.html">Kuis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold text-primary" href="sumber.html">Sumber</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<!-- JUDUL -->
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge rounded-pill px-3 py-2 mb-3"
+            style="background:#e3efff; color:#2563a6;">
+            KUIS PEMBELAJARAN
+        </span>
+
+        <h1 class="fw-bold" style="color:#193b60;">
+            Uji Pemahamanmu!
+        </h1>
+
+        <p class="text-secondary">
+            Yuk, uji pengetahuanmu tentang perangkat keras komputer.
+        </p>
+
+    </div>
+
+
+    <!-- INFORMASI KUIS -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4">
+        <div class="card-body p-4">
+
+            <h5 class="fw-bold" style="color:#2563a6;">
+                Petunjuk Pengerjaan
+            </h5>
+
+            <ul class="text-secondary mb-0">
+                <li>Terdapat 5 soal pilihan ganda.</li>
+                <li>Pilih satu jawaban yang paling tepat.</li>
+                <li>Setiap jawaban benar bernilai 20 poin.</li>
+                <li>Kerjakan semua soal sebelum memeriksa jawaban.</li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <!-- DAFTAR SOAL -->
+    <div id="areaKuis">
+
+        <div id="daftarSoal"></div>
+
+        <div class="text-center mt-4">
+
+            <button id="btnPeriksa"
+                onclick="periksaJawaban()"
+                class="btn btn-primary rounded-pill px-5 py-2"
+                style="background:#2563a6; border:none;">
+                Periksa Jawaban
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- HASIL KUIS -->
+    <div id="hasilKuis" style="display:none;">
+
+        <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body p-4 p-md-5 text-center">
+
+                <div style="font-size:60px;" id="ikonHasil">🎉</div>
+
+                <h2 class="fw-bold mt-2" style="color:#193b60;">
+                    Kuis Selesai!
+                </h2>
+
+                <p class="text-secondary">
+                    Berikut hasil pengerjaan kuismu.
+                </p>
+
+                <div class="p-4 my-4"
+                    style="background:#e3efff; border-radius:18px;">
+
+                    <p class="text-secondary mb-1">
+                        Nilai Akhir
+                    </p>
+
+                    <h1 id="nilaiAkhir"
+                        class="display-3 fw-bold"
+                        style="color:#2563a6;">
+                        0
+                    </h1>
+
+                    <h5 id="keteranganNilai" class="fw-bold"></h5>
+
+                    <p id="jumlahBenar" class="text-secondary mb-0"></p>
+
+                </div>
+
+                <h5 class="fw-bold text-start mb-3"
+                    style="color:#193b60;">
+                    Pembahasan Jawaban
+                </h5>
+
+                <div id="pembahasan" class="text-start"></div>
+
+                <button onclick="ulangKuis()"
+                    class="btn btn-primary rounded-pill px-5 py-2 mt-4"
+                    style="background:#2563a6; border:none;">
+                    ↻ Ulangi Kuis
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="text-center py-4 bg-white">
+    <p class="text-secondary mb-0">
+        © 2026 Hardware Learning | Media Pembelajaran Informatika
+    </p>
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+const soal = [
+
+    {
+        pertanyaan: "Apa yang dimaksud dengan hardware?",
+        pilihan: [
+            "Program yang digunakan komputer",
+            "Komponen fisik komputer yang dapat dilihat dan disentuh",
+            "Kumpulan data dalam komputer",
+            "Sistem operasi komputer"
+        ],
+        benar: 1,
+        pembahasan: "Hardware adalah seluruh komponen fisik komputer yang dapat dilihat dan disentuh."
+    },
+
+    {
+        pertanyaan: "Perangkat keras yang digunakan untuk memasukkan teks ke komputer adalah ...",
+        pilihan: [
+            "Monitor",
+            "Speaker",
+            "Keyboard",
+            "Printer"
+        ],
+        benar: 2,
+        pembahasan: "Keyboard merupakan perangkat input yang digunakan untuk memasukkan teks, angka, dan perintah."
+    },
+
+    {
+        pertanyaan: "Komponen utama yang bertugas menjalankan instruksi dan mengolah data adalah ...",
+        pilihan: [
+            "CPU",
+            "Mouse",
+            "Monitor",
+            "Flashdisk"
+        ],
+        benar: 0,
+        pembahasan: "CPU atau processor bertugas menjalankan instruksi dan mengolah data dalam komputer."
+    },
+
+    {
+        pertanyaan: "Perangkat keras yang digunakan untuk menampilkan gambar dan teks adalah ...",
+        pilihan: [
+            "Scanner",
+            "Keyboard",
+            "SSD",
+            "Monitor"
+        ],
+        benar: 3,
+        pembahasan: "Monitor merupakan perangkat output yang menampilkan informasi berupa teks, gambar, dan video."
+    },
+
+    {
+        pertanyaan: "Manakah perangkat yang digunakan untuk menyimpan data dalam jangka panjang?",
+        pilihan: [
+            "Mouse",
+            "SSD",
+            "Microphone",
+            "Speaker"
+        ],
+        benar: 1,
+        pembahasan: "SSD merupakan perangkat penyimpanan yang dapat menyimpan data dalam jangka panjang."
+    }
+
+];
+
+
+let jawabanPengguna = [];
+
+
+// MENAMPILKAN SOAL
+function tampilkanSoal() {
+
+    let html = "";
+
+    soal.forEach((item, index) => {
+
+        html += `
+            <div class="shadow-sm mb-4"
+                style="background:white; border:1px solid #e7edf5;
+                border-radius:18px; padding:22px;">
+
+                <h5 class="fw-bold mb-3"
+                    style="color:#193b60;">
+                    ${index + 1}. ${item.pertanyaan}
+                </h5>
+
+                ${item.pilihan.map((pilihan, i) => `
+
+                    <label id="opsi-${index}-${i}"
+                        style="display:block; background:#f5f8fc;
+                        border:1px solid #e1e9f3; border-radius:12px;
+                        padding:12px 15px; margin-bottom:10px;
+                        cursor:pointer; transition:0.2s;">
+
+                        <input type="radio"
+                            name="soal${index}"
+                            value="${i}"
+                            style="margin-right:8px;">
+
+                        ${String.fromCharCode(65 + i)}.
+                        ${pilihan}
+
+                    </label>
+
+                `).join("")}
+
+            </div>
+        `;
+
+    });
+
+    document.getElementById("daftarSoal").innerHTML = html;
+
+    // EFEK HOVER PILIHAN JAWABAN
+    document.querySelectorAll("#daftarSoal label").forEach(label => {
+
+        label.onmouseover = function() {
+            if (!this.dataset.diperiksa) {
+                this.style.background = "#e3efff";
+                this.style.borderColor = "#2563a6";
+            }
+        };
+
+        label.onmouseout = function() {
+            if (!this.dataset.diperiksa) {
+                this.style.background = "#f5f8fc";
+                this.style.borderColor = "#e1e9f3";
+            }
+        };
+
+    });
+
+}
+
+
+// MEMERIKSA JAWABAN
+function periksaJawaban() {
+
+    jawabanPengguna = [];
+
+    for (let i = 0; i < soal.length; i++) {
+
+        let jawaban = document.querySelector(
+            `input[name="soal${i}"]:checked`
+        );
+
+        if (!jawaban) {
+            alert("Silakan jawab semua soal terlebih dahulu!");
+            return;
+        }
+
+        jawabanPengguna.push(Number(jawaban.value));
+
+    }
+
+    tampilkanHasil();
+
+}
+
+
+// MENAMPILKAN HASIL
+function tampilkanHasil() {
+
+    let benar = 0;
+    let html = "";
+
+    soal.forEach((item, index) => {
+
+        let jawaban = jawabanPengguna[index];
+        let benarAtauSalah = jawaban === item.benar;
+
+        if (benarAtauSalah) {
+            benar++;
+        }
+
+        let opsiDipilih = document.getElementById(
+            `opsi-${index}-${jawaban}`
+        );
+
+        let opsiBenar = document.getElementById(
+            `opsi-${index}-${item.benar}`
+        );
+
+        // MENANDAI JAWABAN
+        document.querySelectorAll(
+            `input[name="soal${index}"]`
+        ).forEach(input => {
+            input.disabled = true;
+        });
+
+        document.querySelectorAll(
+            `#daftarSoal label`
+        ).forEach(label => {
+            label.dataset.diperiksa = "true";
+            label.style.cursor = "default";
+            label.style.background = "#f5f8fc";
+            label.style.borderColor = "#e1e9f3";
+        });
+
+        if (benarAtauSalah) {
+
+            opsiDipilih.style.background = "#e8f7ee";
+            opsiDipilih.style.borderColor = "#198754";
+
+        } else {
+
+            opsiDipilih.style.background = "#fff0f0";
+            opsiDipilih.style.borderColor = "#dc3545";
+
+            opsiBenar.style.background = "#e8f7ee";
+            opsiBenar.style.borderColor = "#198754";
+
+        }
+
+
+        // PEMBAHASAN
+        html += `
+            <div class="p-3 mb-3"
+                style="border:1px solid #e7edf5;
+                border-radius:16px;">
+
+                <h6 class="fw-bold">
+                    ${index + 1}. ${item.pertanyaan}
+                </h6>
+
+                <p class="mb-1">
+                    Jawabanmu:
+                    <b>${String.fromCharCode(65 + jawaban)}.
+                    ${item.pilihan[jawaban]}</b>
+                </p>
+
+                <p class="mb-2">
+                    Jawaban benar:
+                    <b style="color:#198754;">
+                    ${String.fromCharCode(65 + item.benar)}.
+                    ${item.pilihan[item.benar]}
+                    </b>
+                </p>
+
+                <p class="text-secondary small mb-0">
+                    ${item.pembahasan}
+                </p>
+
+            </div>
+        `;
+
+    });
+
+
+    // MENGHITUNG NILAI
+    let nilai = benar * 20;
+
+    document.getElementById("nilaiAkhir").innerHTML = nilai;
+
+    document.getElementById("jumlahBenar").innerHTML =
+        benar + " dari 5 soal dijawab dengan benar.";
+
+    let keterangan = "";
+
+    if (nilai === 100) {
+        keterangan = "Sempurna! Kamu menguasai materi.";
+    } else if (nilai >= 80) {
+        keterangan = "Bagus! Pemahamanmu sudah sangat baik.";
+    } else if (nilai >= 60) {
+        keterangan = "Cukup baik! Terus tingkatkan belajarmu.";
+    } else {
+        keterangan = "Tetap semangat! Pelajari kembali materinya.";
+    }
+
+    document.getElementById("keteranganNilai").innerHTML =
+        keterangan;
+
+    document.getElementById("pembahasan").innerHTML = html;
+
+    document.getElementById("areaKuis").style.display = "none";
+    document.getElementById("hasilKuis").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+}
+
+
+// MENGULANGI KUIS
+function ulangKuis() {
+
+    jawabanPengguna = [];
+
+    document.getElementById("hasilKuis").style.display = "none";
+    document.getElementById("areaKuis").style.display = "block";
+
+    tampilkanSoal();
+
+    window.scrollTo(0, 0);
+
+}
+
+
+// JALANKAN KUIS
+tampilkanSoal();
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

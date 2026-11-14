@@ -6,192 +6,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/icon.png">
     <title>Kuis - Hardware Learning</title>
-
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body style="background-color:#f5f8fc;">
 
 <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top"
         style="padding: 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-
         <div class="container">
-
             <a class="navbar-brand fw-bold"
             href="index.html"
             style="font-size: 22px; color: #2563a6;">
                 Hardware Learning
             </a>
-
             <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto"
                     style="font-size: 15px;">
-
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Beranda</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="materi.html">Materi</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="komponen.html">Kenali Komponen</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="simulasi.html">Simulasi</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link active" href="kuis.html">Kuis</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active fw-bold text-primary" href="sumber.html">Sumber</a>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
 
-
 <!-- JUDUL -->
 <section class="container py-5">
-
     <div class="text-center mb-5">
-
         <span class="badge rounded-pill px-3 py-2 mb-3"
             style="background:#e3efff; color:#2563a6;">
             KUIS PEMBELAJARAN
         </span>
-
         <h1 class="fw-bold" style="color:#193b60;">
             Uji Pemahamanmu!
         </h1>
-
         <p class="text-secondary">
             Yuk, uji pengetahuanmu tentang perangkat keras komputer.
         </p>
-
     </div>
-
 
     <!-- INFORMASI KUIS -->
     <div class="card border-0 shadow-sm rounded-4 mb-4">
         <div class="card-body p-4">
-
             <h5 class="fw-bold" style="color:#2563a6;">
                 Petunjuk Pengerjaan
             </h5>
-
             <ul class="text-secondary mb-0">
                 <li>Terdapat 5 soal pilihan ganda.</li>
                 <li>Pilih satu jawaban yang paling tepat.</li>
                 <li>Setiap jawaban benar bernilai 20 poin.</li>
                 <li>Kerjakan semua soal sebelum memeriksa jawaban.</li>
             </ul>
-
         </div>
     </div>
-
-
+    
     <!-- DAFTAR SOAL -->
     <div id="areaKuis">
-
         <div id="daftarSoal"></div>
-
         <div class="text-center mt-4">
-
             <button id="btnPeriksa"
                 onclick="periksaJawaban()"
                 class="btn btn-primary rounded-pill px-5 py-2"
                 style="background:#2563a6; border:none;">
                 Periksa Jawaban
             </button>
-
         </div>
-
     </div>
-
 
     <!-- HASIL KUIS -->
     <div id="hasilKuis" style="display:none;">
-
         <div class="card border-0 shadow-sm rounded-4">
             <div class="card-body p-4 p-md-5 text-center">
-
                 <div style="font-size:60px;" id="ikonHasil">🎉</div>
-
                 <h2 class="fw-bold mt-2" style="color:#193b60;">
                     Kuis Selesai!
                 </h2>
-
                 <p class="text-secondary">
                     Berikut hasil pengerjaan kuismu.
                 </p>
-
                 <div class="p-4 my-4"
                     style="background:#e3efff; border-radius:18px;">
-
                     <p class="text-secondary mb-1">
                         Nilai Akhir
                     </p>
-
                     <h1 id="nilaiAkhir"
                         class="display-3 fw-bold"
                         style="color:#2563a6;">
                         0
                     </h1>
-
                     <h5 id="keteranganNilai" class="fw-bold"></h5>
-
                     <p id="jumlahBenar" class="text-secondary mb-0"></p>
-
                 </div>
-
                 <h5 class="fw-bold text-start mb-3"
                     style="color:#193b60;">
                     Pembahasan Jawaban
                 </h5>
-
                 <div id="pembahasan" class="text-start"></div>
-
                 <button onclick="ulangKuis()"
                     class="btn btn-primary rounded-pill px-5 py-2 mt-4"
                     style="background:#2563a6; border:none;">
                     ↻ Ulangi Kuis
                 </button>
-
             </div>
         </div>
-
     </div>
-
 </section>
-
 
 <!-- FOOTER -->
 <footer class="text-center py-4 bg-white">
     <p class="text-secondary mb-0">
-        © 2026 Hardware Learning | Media Pembelajaran Informatika
+        © 2026 Hardware Learning | Media Pembelajaran Informatika Kelas X
     </p>
 </footer>
 
 
 <!-- JAVASCRIPT -->
 <script>
-
 const soal = [
-
     {
         pertanyaan: "Apa yang dimaksud dengan hardware?",
         pilihan: [
@@ -254,7 +205,6 @@ const soal = [
 
 ];
 
-
 let jawabanPengguna = [];
 
 
@@ -311,16 +261,14 @@ function tampilkanSoal() {
                 this.style.borderColor = "#2563a6";
             }
         };
-
+        
         label.onmouseout = function() {
             if (!this.dataset.diperiksa) {
                 this.style.background = "#f5f8fc";
                 this.style.borderColor = "#e1e9f3";
             }
         };
-
     });
-
 }
 
 
@@ -339,15 +287,10 @@ function periksaJawaban() {
             alert("Silakan jawab semua soal terlebih dahulu!");
             return;
         }
-
         jawabanPengguna.push(Number(jawaban.value));
-
     }
-
     tampilkanHasil();
-
 }
-
 
 // MENAMPILKAN HASIL
 function tampilkanHasil() {
@@ -470,7 +413,6 @@ function tampilkanHasil() {
 
 }
 
-
 // MENGULANGI KUIS
 function ulangKuis() {
 
@@ -485,13 +427,10 @@ function ulangKuis() {
 
 }
 
-
 // JALANKAN KUIS
 tampilkanSoal();
 
 </script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
